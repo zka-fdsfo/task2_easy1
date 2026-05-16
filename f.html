@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Tech Arsenal | Compact Stack Card</title>
+  <style>
+    /* reset & base – minimal, clean, no external deps */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(145deg, #e9eef3 0%, #dce3ec 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: system-ui, 'Segoe UI', 'Inter', 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+      padding: 1.5rem;
+    }
+
+    /* ----- SINGLE CORE ELEMENT: TECH ARSENAL CARD ----- */
+    .tech-arsenal {
+      max-width: 620px;
+      width: 100%;
+      background: rgba(10, 14, 23, 0.96);
+      backdrop-filter: blur(0px);
+      border-radius: 2.25rem;
+      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.35), 0 1px 2px rgba(0, 0, 0, 0.05);
+      transition: all 0.2s ease;
+      border: 1px solid rgba(56, 189, 248, 0.2);
+    }
+
+    /* inner spacing — keeps everything compact yet airy */
+    .arsenal-inner {
+      padding: 1.6rem 1.8rem 1.8rem 1.8rem;
+    }
+
+    /* header with subtle tech flair */
+    .arsenal-header {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin-bottom: 1.75rem;
+      border-left: 4px solid #38bdf8;
+      padding-left: 1rem;
+    }
+
+    .arsenal-icon {
+      font-size: 1.8rem;
+      line-height: 1;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+    }
+
+    .arsenal-title {
+      font-size: 1.85rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #f0f9ff 0%, #bae6fd 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    }
+
+    /* minimal grid — pure two-column layout for Stack | Use */
+    .arsenal-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 0.9rem 1.2rem;
+      margin: 1rem 0 1rem 0;
+    }
+
+    /* grid cells: clean typography, consistent spacing */
+    .grid-cell {
+      font-size: 0.95rem;
+      padding: 0.45rem 0 0.45rem 0;
+      border-bottom: 1px dashed rgba(148, 163, 184, 0.2);
+      transition: all 0.1s;
+      color: #e2e8f0;
+      line-height: 1.4;
+    }
+
+    /* header cells: distinct, strong, modern */
+    .grid-cell.header {
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7dd3fc;
+      border-bottom: 2px solid #38bdf8;
+      padding-bottom: 0.6rem;
+      margin-bottom: 0rem;
+      background: transparent;
+    }
+
+    /* subtle differentiation for stack column */
+    .grid-cell:first-child {
+      font-weight: 550;
+      color: #f1f5f9;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      letter-spacing: -0.2px;
+    }
+
+    /* use column: softer, descriptive */
+    .grid-cell:last-child {
+      color: #cbd5e1;
+      font-weight: 450;
+    }
+
+    /* footer micro detail — adds character without bloat */
+    .arsenal-footnote {
+      margin-top: 1.5rem;
+      padding-top: 0.8rem;
+      border-top: 1px solid rgba(56, 189, 248, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #7f8ea3;
+      letter-spacing: 0.2px;
+    }
+
+    .footnote-dot {
+      width: 8px;
+      height: 8px;
+      background: #38bdf8;
+      border-radius: 20px;
+      display: inline-block;
+      box-shadow: 0 0 4px #38bdf8;
+    }
+
+    /* hover nuance — interactive but not heavy */
+    .tech-arsenal:hover {
+      border-color: rgba(56, 189, 248, 0.5);
+      box-shadow: 0 24px 42px -16px rgba(0, 0, 0, 0.45);
+      transform: translateY(-2px);
+    }
+
+    /* responsive: stays 100% small, never oversized */
+    @media (max-width: 500px) {
+      .arsenal-inner {
+        padding: 1.3rem 1.2rem 1.5rem 1.2rem;
+      }
+      .arsenal-title {
+        font-size: 1.55rem;
+      }
+      .grid-cell {
+        font-size: 0.85rem;
+        padding: 0.4rem 0;
+      }
+      .arsenal-grid {
+        gap: 0.65rem 0.9rem;
+      }
+      .grid-cell.header {
+        font-size: 0.8rem;
+      }
+    }
+
+    /* ultra-compact & pixel-perfect alignment */
+    @media (max-width: 380px) {
+      .arsenal-grid {
+        grid-template-columns: 0.9fr 1.2fr;
+        gap: 0.6rem;
+      }
+      .grid-cell {
+        font-size: 0.8rem;
+        word-break: break-word;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 
+    ⚡ SINGLE ELEMENT — "Tech Arsenal"
+    100% responsive, minimal markup, compact footprint.
+    Implements "Stack | Use" table with modern arsenal data.
+    No external libs, tiny CSS, fully self-contained.
+  -->
+  <div class="tech-arsenal">
+    <div class="arsenal-inner">
+      
+      <!-- arsenal identity: title + subtle icon -->
+      <div class="arsenal-header">
+        <span class="arsenal-icon">🛠️</span>
+        <h1 class="arsenal-title">Tech Arsenal</h1>
+      </div>
+      
+      <!-- 2-col grid: Stack | Use (exactly as requested) -->
+      <div class="arsenal-grid">
+        <!-- header row -->
+        <div class="grid-cell header">⚡ Stack</div>
+        <div class="grid-cell header">🎯 Use</div>
+        
+        <!-- data rows: curated modern toolkit, lean but powerful -->
+        <div class="grid-cell">React 19</div>
+        <div class="grid-cell">Component architecture · hooks · SPA</div>
+        
+        <div class="grid-cell">Next.js 15</div>
+        <div class="grid-cell">App Router · SSR · API routes</div>
+        
+        <div class="grid-cell">TypeScript</div>
+        <div class="grid-cell">Type safety · scale · DX</div>
+        
+        <div class="grid-cell">Tailwind CSS</div>
+        <div class="grid-cell">Utility-first · rapid UI · theming</div>
+        
+        <div class="grid-cell">Node.js</div>
+        <div class="grid-cell">Backend services · tooling · APIs</div>
+        
+        <div class="grid-cell">PostgreSQL</div>
+        <div class="grid-cell">Relational DB · robust queries</div>
+        
+        <div class="grid-cell">Docker</div>
+        <div class="grid-cell">Containerization · dev/prod parity</div>
+        
+        <div class="grid-cell">GitHub Actions</div>
+        <div class="grid-cell">CI/CD automation · workflows</div>
+      </div>
+      
+      <!-- minimal footer – adds personality, zero bloat -->
+      <div class="arsenal-footnote">
+        <span class="footnote-dot"></span>
+        <span>full‑stack ready · battle‑tested stack</span>
+        <span style="margin-left: auto; opacity: 0.7;">✦ v2.0</span>
+      </div>
+      
+    </div>
+  </div>
+
+</body>
+</html>
